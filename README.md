@@ -8,6 +8,7 @@
 
 flexbox比其它布局更快
 
+观察timeline面板中的requestAnimationFrame触发过程之间的时间和执行事件所需的时间，来分析fps低的原因
 在animationFrame的16ms里进行任务，能保证60fps，使用scheduler.js
 
 浏览器图片请求优先级：(资源请求和解析都是异步，除了js)
