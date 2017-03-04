@@ -1,0 +1,74 @@
+$s10-x: 0;
+$s10-y: 0;
+$s10-width: 311px;
+$s10-height: 237px;
+$s10: $s10-x $s10-y $s10-width $s10-height;
+$s7-x: -311px;
+$s7-y: 0;
+$s7-width: 311px;
+$s7-height: 236px;
+$s7: $s7-x $s7-y $s7-width $s7-height;
+$s9-x: 0;
+$s9-y: -237px;
+$s9-width: 306px;
+$s9-height: 232px;
+$s9: $s9-x $s9-y $s9-width $s9-height;
+$s3-x: -622px;
+$s3-y: 0;
+$s3-width: 345px;
+$s3-height: 186px;
+$s3: $s3-x $s3-y $s3-width $s3-height;
+$s4-x: 0;
+$s4-y: -469px;
+$s4-width: 216px;
+$s4-height: 295px;
+$s4: $s4-x $s4-y $s4-width $s4-height;
+$s11-x: -216px;
+$s11-y: -469px;
+$s11-width: 213px;
+$s11-height: 284px;
+$s11: $s11-x $s11-y $s11-width $s11-height;
+$s1-x: -967px;
+$s1-y: 0;
+$s1-width: 205px;
+$s1-height: 285px;
+$s1: $s1-x $s1-y $s1-width $s1-height;
+$s8-x: -967px;
+$s8-y: -285px;
+$s8-width: 204px;
+$s8-height: 284px;
+$s8: $s8-x $s8-y $s8-width $s8-height;
+$s2-x: -429px;
+$s2-y: -469px;
+$s2-width: 203px;
+$s2-height: 284px;
+$s2: $s2-x $s2-y $s2-width $s2-height;
+$s6-x: -622px;
+$s6-y: -186px;
+$s6-width: 203px;
+$s6-height: 282px;
+$s6: $s6-x $s6-y $s6-width $s6-height;
+$s5-x: -632px;
+$s5-y: -469px;
+$s5-width: 201px;
+$s5-height: 281px;
+$s5: $s5-x $s5-y $s5-width $s5-height;
+
+@mixin sprite-image {
+  background-image: url("../../dist/img/small-stamp-img1.png");
+}
+@mixin sprite-position($sprite) {
+  background-position: nth($sprite, 1) nth($sprite, 2);
+}
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+@mixin sprite($sprite) {
+  @include sprite-image;
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}

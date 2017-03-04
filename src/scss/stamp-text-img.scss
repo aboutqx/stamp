@@ -1,0 +1,64 @@
+$s1-text-x: 0;
+$s1-text-y: 0;
+$s1-text-width: 464px;
+$s1-text-height: 750px;
+$s1-text: $s1-text-x $s1-text-y $s1-text-width $s1-text-height;
+$s2-text-x: 0;
+$s2-text-y: -750px;
+$s2-text-width: 442px;
+$s2-text-height: 770px;
+$s2-text: $s2-text-x $s2-text-y $s2-text-width $s2-text-height;
+$s5-text-x: -464px;
+$s5-text-y: 0;
+$s5-text-width: 431px;
+$s5-text-height: 746px;
+$s5-text: $s5-text-x $s5-text-y $s5-text-width $s5-text-height;
+$s6-text-x: -464px;
+$s6-text-y: -746px;
+$s6-text-width: 430px;
+$s6-text-height: 744px;
+$s6-text: $s6-text-x $s6-text-y $s6-text-width $s6-text-height;
+$s4-text-x: -895px;
+$s4-text-y: 0;
+$s4-text-width: 430px;
+$s4-text-height: 742px;
+$s4-text: $s4-text-x $s4-text-y $s4-text-width $s4-text-height;
+$s7-text-x: -895px;
+$s7-text-y: -742px;
+$s7-text-width: 430px;
+$s7-text-height: 741px;
+$s7-text: $s7-text-x $s7-text-y $s7-text-width $s7-text-height;
+$s3-text-x: -1325px;
+$s3-text-y: 0;
+$s3-text-width: 431px;
+$s3-text-height: 693px;
+$s3-text: $s3-text-x $s3-text-y $s3-text-width $s3-text-height;
+$s-title-x: -1325px;
+$s-title-y: -693px;
+$s-title-width: 134px;
+$s-title-height: 32px;
+$s-title: $s-title-x $s-title-y $s-title-width $s-title-height;
+$s1-no-x: -1459px;
+$s1-no-y: -693px;
+$s1-no-width: 110px;
+$s1-no-height: 20px;
+$s1-no: $s1-no-x $s1-no-y $s1-no-width $s1-no-height;
+
+@mixin sprite-image3 {
+  background-image: url("../../dist/img/stamp-text-img.png");
+}
+@mixin sprite-position3($sprite) {
+  background-position: nth($sprite, 1) nth($sprite, 2);
+}
+@mixin sprite-width3($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height3($sprite) {
+  height: nth($sprite, 4);
+}
+@mixin sprite3($sprite) {
+  @include sprite-image3;
+  @include sprite-position3($sprite);
+  @include sprite-width3($sprite);
+  @include sprite-height3($sprite);
+}

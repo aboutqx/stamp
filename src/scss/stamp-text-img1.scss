@@ -1,0 +1,39 @@
+$s8-text-x: 0;
+$s8-text-y: 0;
+$s8-text-width: 431px;
+$s8-text-height: 738px;
+$s8-text: $s8-text-x $s8-text-y $s8-text-width $s8-text-height;
+$s11-text-x: -431px;
+$s11-text-y: 0;
+$s11-text-width: 430px;
+$s11-text-height: 738px;
+$s11-text: $s11-text-x $s11-text-y $s11-text-width $s11-text-height;
+$s10-text-x: -861px;
+$s10-text-y: 0;
+$s10-text-width: 430px;
+$s10-text-height: 712px;
+$s10-text: $s10-text-x $s10-text-y $s10-text-width $s10-text-height;
+$s9-text-x: -1291px;
+$s9-text-y: 0;
+$s9-text-width: 431px;
+$s9-text-height: 694px;
+$s9-text: $s9-text-x $s9-text-y $s9-text-width $s9-text-height;
+
+@mixin sprite-image4 {
+  background-image: url("../../dist/img/stamp-text-img1.png");
+}
+@mixin sprite-position4($sprite) {
+  background-position: nth($sprite, 1) nth($sprite, 2);
+}
+@mixin sprite-width4($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height4($sprite) {
+  height: nth($sprite, 4);
+}
+@mixin sprite4($sprite) {
+  @include sprite-image4;
+  @include sprite-position4($sprite);
+  @include sprite-width4($sprite);
+  @include sprite-height4($sprite);
+}

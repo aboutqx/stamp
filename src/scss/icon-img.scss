@@ -1,0 +1,74 @@
+$about-bottom-x: 0;
+$about-bottom-y: 0;
+$about-bottom-width: 322px;
+$about-bottom-height: 23px;
+$about-bottom: $about-bottom-x $about-bottom-y $about-bottom-width $about-bottom-height;
+$down-x: 0;
+$down-y: -23px;
+$down-width: 110px;
+$down-height: 60px;
+$down: $down-x $down-y $down-width $down-height;
+$about-net-x: -110px;
+$about-net-y: -23px;
+$about-net-width: 152px;
+$about-net-height: 41px;
+$about-net: $about-net-x $about-net-y $about-net-width $about-net-height;
+$share-x: 0;
+$share-y: -83px;
+$share-width: 107px;
+$share-height: 49px;
+$share: $share-x $share-y $share-width $share-height;
+$continue-x: -107px;
+$continue-y: -83px;
+$continue-width: 107px;
+$continue-height: 49px;
+$continue: $continue-x $continue-y $continue-width $continue-height;
+$click-x: 0;
+$click-y: -132px;
+$click-width: 67px;
+$click-height: 63px;
+$click: $click-x $click-y $click-width $click-height;
+$back-x: -214px;
+$back-y: -83px;
+$back-width: 56px;
+$back-height: 46px;
+$back: $back-x $back-y $back-width $back-height;
+$about-b-x: -270px;
+$about-b-y: -83px;
+$about-b-width: 43px;
+$about-b-height: 42px;
+$about-b: $about-b-x $about-b-y $about-b-width $about-b-height;
+$left-arrow-x: -262px;
+$left-arrow-y: -23px;
+$left-arrow-width: 27px;
+$left-arrow-height: 30px;
+$left-arrow: $left-arrow-x $left-arrow-y $left-arrow-width $left-arrow-height;
+$right-arrow-x: -289px;
+$right-arrow-y: -23px;
+$right-arrow-width: 27px;
+$right-arrow-height: 30px;
+$right-arrow: $right-arrow-x $right-arrow-y $right-arrow-width $right-arrow-height;
+$about-x: -67px;
+$about-y: -132px;
+$about-width: 11px;
+$about-height: 41px;
+$about: $about-x $about-y $about-width $about-height;
+
+@mixin sprite-image2 {
+  background-image: url("../../dist/img/icon-img.png");
+}
+@mixin sprite-position2($sprite) {
+  background-position: nth($sprite, 1) nth($sprite, 2);
+}
+@mixin sprite-width2($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height2($sprite) {
+  height: nth($sprite, 4);
+}
+@mixin sprite2($sprite) {
+  @include sprite-image2;
+  @include sprite-position2($sprite);
+  @include sprite-width2($sprite);
+  @include sprite-height2($sprite);
+}

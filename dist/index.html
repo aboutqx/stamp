@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <title></title>
+    <meta name="cms_id" content="0001dada_stamp" >
+    <meta name="model_url" content="${modelUrl}" >
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="keywords" content="" >
+    <meta name="description" content="" >
+    <!--<link rel="stylesheet" href="css/main.css">-->
+</head>
+<body>
+    <h1 style="display: none;">h5 placeholder</h1>
+    <div class="container">
+        <div class='ani-page'></div>
+        <div class='video-page'>
+            <img src="img/post.jpg" class="post" width="120px" height="100px">
+        </div>
+        <p class="words"></p>
+        <div class='foot-page'>
+            <div class='share'></div>
+            <div class='restart'></div>
+            <a href="http://3g.163.com/touch/comment.html?docid=C9EOQHAI00018GGC&board=tie_bbs&title=1&articleversion=B" class="gentie"></a>
+        </div>
+        <div class="main_share_btn"></div>
+    </div>
+    <script src="zepto.min.js"></script>
+    <script src="bundle.js"></script>
+    <script src="http://pimg1.126.net/mail/AppCore/min/h5.share.js"></script>
+    <script>
+        h5Share.init({
+            title: "chicken",
+            desc: "chicken",
+            url: location.href,
+            img: 'http://cms-bucket.nosdn.127.net/ee57ec5d26424a038f1761e5c58909f220161222114637.jpeg'
+        });
+    </script>
+    <script src="//analytics.163.com/ntes.js"></script>
+    <script>
+        _ntes_nacc = "news";
+        neteaseTracker();
+    </script>
+</body>
+</html>
