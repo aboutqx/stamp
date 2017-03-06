@@ -91,6 +91,7 @@ function _init() {
 	let music = document.querySelector('audio');
 	
 	window.addEventListener('touchstart',()=>{
+		document.querySelector('.click-wrapper').classList.add('fade');
 		music.play()
 	})
 	document.addEventListener("visibilitychange",()=>{
@@ -168,8 +169,8 @@ function _onImageLoaded(o) {
 
 
 function _addIconAnimation() {
-	let t = new TimelineMax({repeat:-1}),r=document.querySelector('.arrow-right'),
-	  l = document.querySelector('.arrow-left')
+	let t = new TimelineMax({repeat:-1}),r=document.querySelector('.arrow-right-wrapper'),
+	  l = document.querySelector('.arrow-left-wrapper')
 
 	t.fromTo(r, 2, {
 	    xPercent: 0,

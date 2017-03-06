@@ -50,8 +50,8 @@ class HandleScroll{
 		this._maskLeft = getBorder(this._mask).left;
 		this._maskRight = getBorder(this._mask).right;
 
-		this.tipLeft = document.querySelector('.arrow-left');
-		this.tipRight = document.querySelector('.arrow-right');
+		this.tipLeft = document.querySelector('.arrow-left-wrapper');
+		this.tipRight = document.querySelector('.arrow-right-wrapper');
 		
 	}
 
@@ -187,13 +187,18 @@ class HandleScroll{
 
 		if(mIndex !== 0) {
 			this.tipLeft.style.opacity=1;
+			this.tipRight.querySelector('.tip-text').classList.add('fade')
+
 		} else {
 			this.tipLeft.style.opacity=0;
+			this.tipRight.querySelector('.tip-text').classList.remove('fade')
 		}
 		if(mIndex == 10){
-			this.tipRight.style.opacity=0;
+			this.tipRight.style.opacity=0;	
+
 		} else {
 			this.tipRight.style.opacity=1;
+
 		}
 	}
 

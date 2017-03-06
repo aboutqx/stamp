@@ -1,46 +1,190 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <title></title>
-    <meta name="cms_id" content="0001dada_stamp" >
-    <meta name="model_url" content="${modelUrl}" >
+    <meta name="cms_id" content="0001dada_stamp">
+    <meta name="model_url" content="${modelUrl}">
     <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta name="keywords" content="" >
-    <meta name="description" content="" >
-    <!--<link rel="stylesheet" href="css/main.css">-->
+    <meta content="width=750, user-scalable=no" name="viewport">
+    <meta name="keywords" content="两会，纪念邮票，网易新闻，哒哒">
+    <meta name="description" content="">
+    <style>
+    .container {
+        opacity: 0;
+    }
+    
+    .loader-text {
+        opacity: 0;
+    }
+    
+    .bstamp-list.hide {
+        display: none;
+    }
+    </style>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
 </head>
+
 <body>
-    <h1 style="display: none;">h5 placeholder</h1>
+    <h1 style="display: none;">两会纪念邮票</h1>
+    <audio preload loop src="https://file.ws.126.net/f2e/news/dada_stamp/dist/files/bg-music.mp3"></audio>
+    <div class="Loading-Bar">
+        <div class="loader-wrapper">
+            <div class="loader-text">
+                <div class="text"></div>
+                <div>PERCENT</div>
+            </div>
+        </div>
+    </div>
+    <div class="bstamp-back hide">
+        <i></i>
+    </div>
+    <div id="tip">
+        <div class="about-icon"></div>
+        <div class="about-btn"><i></i></div>
+        <div class="arrow-left-wrapper"><i class="arrow-left"></i></div>
+        <div class="arrow-right-wrapper"><i class="tip-text">向右滑动</i><i class="arrow-right"></i></div>
+        <div class="click-wrapper">
+            <div class="click-tip"></div>
+            <span>点击</span>
+        </div>
+    </div>
+    <div id="about-page" class="hide">
+        <div class="share-btn"></div>
+        <div class="continue-btn"></div>
+        <a class="down-btn" href="http://m.163.com/newsapp/applinks.html"></a>
+        <div class="about-bottom"></div>
+    </div>
     <div class="container">
-        <div class='ani-page'></div>
-        <div class='video-page'>
-            <img src="img/post.jpg" class="post" width="120px" height="100px">
+        <div class="transfomr-bg transfomr-bg0 hide"> </div>
+        <div class="transfomr-bg transfomr-bg1 hide"> </div>
+        <div class="transfomr-bg transfomr-bg2 hide"> </div>
+        <div class="transfomr-bg transfomr-bg3 hide"> </div>
+        <div class="transfomr-bg transfomr-bg4 hide"> </div>
+        <div class="transfomr-bg transfomr-bg5 hide"> </div>
+        <div class="transfomr-bg transfomr-bg6 hide"> </div>
+        <div class="transfomr-bg transfomr-bg7 hide"> </div>
+        <div class="transfomr-bg transfomr-bg8 hide"> </div>
+        <div class="transfomr-bg transfomr-bg9 hide"> </div>
+        <div class="transfomr-bg transfomr-bg10 hide"> </div>
+        <div class="redline"></div>
+        <div class="stamp-mask"></div>
+        <div class="stamp-list">
+            <!-- (div.s-stamp>((div.stamp-title>h2{纪念邮票}+span{纪1})+div>img[src="img/s1.png" alt="邮票"]))*10-->
+            <div class="s-stamp s-stamp1">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+                <div class="stamp-no"></div>
+            </div>
+            <div class="s-stamp s-stamp2">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp3">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp4">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp5">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp6">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp7">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp8">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp9">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp10">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
+            <div class="s-stamp s-stamp11">
+                <div class="stamp-text"></div>
+                <div class="stamp-img"></div>
+                <div class="stamp-title"></div>
+            </div>
         </div>
-        <p class="words"></p>
-        <div class='foot-page'>
-            <div class='share'></div>
-            <div class='restart'></div>
-            <a href="http://3g.163.com/touch/comment.html?docid=C9EOQHAI00018GGC&board=tie_bbs&title=1&articleversion=B" class="gentie"></a>
+        <div class="bstamp-list hide">
+            <div class="b-stamp b-stamp1">
+                <div class="bstamp-img"><img src="distImg/bs1.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp2">
+                <div class="bstamp-img"><img src="distImg/bs2.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp3">
+                <div class="bstamp-img"><img src="distImg/bs3.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp4">
+                <div class="bstamp-img"><img src="distImg/bs4.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp5">
+                <div class="bstamp-img"><img src="distImg/bs5.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp6">
+                <div class="bstamp-img"><img src="distImg/bs6.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp7">
+                <div class="bstamp-img"><img src="distImg/bs7.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp8">
+                <div class="bstamp-img"><img src="distImg/bs8.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp9">
+                <div class="bstamp-img"><img src="distImg/bs9.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp10">
+                <div class="bstamp-img"><img src="distImg/bs10.gif"></div>
+            </div>
+            <div class="b-stamp b-stamp11">
+                <div class="bstamp-img">
+                    <div class="move">
+                    </div>
+                    <img src="distImg/bs12-bg.png">
+                </div>
+            </div>
         </div>
-        <div class="main_share_btn"></div>
     </div>
     <script src="zepto.min.js"></script>
     <script src="bundle.js"></script>
     <script src="http://pimg1.126.net/mail/AppCore/min/h5.share.js"></script>
     <script>
-        h5Share.init({
-            title: "chicken",
-            desc: "chicken",
-            url: location.href,
-            img: 'http://cms-bucket.nosdn.127.net/ee57ec5d26424a038f1761e5c58909f220161222114637.jpeg'
-        });
+    h5Share.init({
+        title: "chicken",
+        desc: "chicken",
+        url: location.href,
+        img: 'http://cms-bucket.nosdn.127.net/ee57ec5d26424a038f1761e5c58909f220161222114637.jpeg'
+    });
     </script>
     <script src="//analytics.163.com/ntes.js"></script>
     <script>
-        _ntes_nacc = "news";
-        neteaseTracker();
+    _ntes_nacc = "news";
+    neteaseTracker();
     </script>
 </body>
+
 </html>

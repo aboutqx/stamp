@@ -70,8 +70,6 @@ body {
     margin-top: 125px;
     opacity: 0;
     transition: opacity .3s ease-out ;
-    perspective: 320px;
-    transform-style: preserve-3d;
     position: relative;
     z-index: 10;
     transform-origin: 325px 603px-135px;
@@ -116,6 +114,7 @@ body {
 .hide {
     display: none;
 }
+
 .flex {
     display: -webkit-box;
     display: -moz-box;
@@ -192,8 +191,6 @@ $stampWidth:(31+482)*11;
         transition: opacity .3s ease-out;
     }
     &.in-mask {
-        /*transform: translate3d(0,0,100px);*/
-        /*transition:transform .3s ease-out;//会造成卡顿*/
         opacity: 1;
         transition: opacity .3s ease-out;
         .stamp-no {
@@ -311,18 +308,22 @@ $stampWidth:(31+482)*11;
 
 
 .bstamp-back{
-    @include sprite2($back);
-    @include position(absolute, $top: 19px,$left: 33px);
-    z-index: 11;
+    i{
+        @include sprite2($back);
+        display: block;
+    }
+    padding:10px 0;
+    @include position(absolute, $top: 40px,$left: 33px);
+    z-index: 22;
 }
-$bstamp-width:700;
+$bstamp-width:730;
 .bstamp-list {
     position: absolute;
     top: 0px;
     left: 0px;
     right:0;
     bottom: 0;
-    
+    z-index: 21;
     .b-stamp{
         height: 100%;
     }
@@ -355,12 +356,26 @@ $bstamp-width:700;
         align-items:center;
 
     }
-    .bstamp-img img{
-        /*width: $bstamp-width*1px;*/
-       
+    
+    .b-stamp{
+        /*opacity: 0;*/
+        
+        transition:1s;
+        img{
+            width: $bstamp-width*1px;
+            /*opacity: 0;*/
+        }
+
+        &.fade-in{
+            /*opacity: 1;*/
+            img{
+                /*opacity: 1;*/
+                /*transition:1.5s;*/
+            }
+        }
     }
     .b-stamp1 img{
-         transform:scale3d(1.28,1.28,1);
+         width: $bstamp-width*1px;
     }
     .b-stamp3 {
         @include bg('bg-2.png');
@@ -370,7 +385,7 @@ $bstamp-width:700;
         }
     }
     .b-stamp4 img,.b-stamp5 img{
-        width: 612px;
+        width: $bstamp-width*1px-30px;
     }
     .b-stamp7{
         @include bg('bg-3.png');
@@ -378,7 +393,7 @@ $bstamp-width:700;
     }
     .b-stamp8{
         img{
-            width: 612px;
+            width: $bstamp-width*1px;
         }
     }
     .b-stamp9{
@@ -386,28 +401,26 @@ $bstamp-width:700;
         background-size: 100% 100%;
         img{
             margin-top: -200px;
-            width: 712px;
         }
     }
     .b-stamp10{
         @include bg('bg-4.png');
         background-size: 100% 100%;
         img{
-            width: 612px;
-            margin-top: -366px;
+            margin-top: -207px;
         }
     }
     .b-stamp11{
         img{
             position: relative;
-            width: 612px;
+            transform: scale(1);
         }
         .move{
-            @include size(573px,511px);
+            @include size(654px,667px);
             background-size: 1299px 100%;
             @include center(true,true);
             margin-top: -126px;
-            animation:bg-move 3s infinite .3s;
+            animation:bg-move 3.3s infinite  ;
             animation-fill-mode :forwards;
         }
     }
@@ -423,6 +436,7 @@ $bstamp-width:700;
     @include bgPos(0, 0, 3674px, 2961px);
     /*//4051*/
     transform: translate3d(2482px, -776px+(4051px-2961px), 0);
+
 }
 .transfomr-bg1 {
     @include bg('t2.jpg');
@@ -480,8 +494,9 @@ $bstamp-width:700;
 }
 /*向下*/
 .change-scene1 {
-    transform: translate3d(-6181px-375px, -326px-603px, 0px) rotateZ(-10deg);
-    transition: transform 4s cubic-bezier(0.21, 0.03, 0.26, 0.98);
+    transform: translate3d(-6181px-375px,-953px, 0px) rotateZ(-10deg);
+    /*transform: translate3d(-6181px-225px,-953px, 0px) rotateZ(-10deg);*/
+    transition: transform 4.5s cubic-bezier(0.21, 0.03, 0.26, 0.98);
     .bstamp-list {
         transform: translate3d(6400px, 1906px, 0) rotateZ(10deg);
         transform-origin:0 0;
@@ -489,7 +504,7 @@ $bstamp-width:700;
 }
 /*向上*/
 .change-scene2 {
-    transform: translate3d(-7866px-375px,1866px-603px, 0px) rotateZ(-13deg);
+    transform: translate3d(-8233px,1285px, 0px) rotateZ(-13deg);
     transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
@@ -499,20 +514,20 @@ $bstamp-width:700;
 }
 /*向下加宽*/
 .change-scene3 {
-    transform: translate3d(-6481px-375px, -326px-603px, 0px) rotateZ(-10deg);
+    transform: translate3d(-6581px-375px, -326px-603px, 0px) rotateZ(-10deg);
     transition: transform 4.5s cubic-bezier(0.21, 0.03, 0.26, 0.98);
     .bstamp-list {
-        transform: translate3d(6694px, 1933px, 0) rotateZ(10deg);
+        transform: translate3d(6794px, 1950px, 0) rotateZ(10deg);
         transform-origin:0 0;
     }
 }
 /*向上加长*/
 .change-scene4 {
-    transform: translate3d(-7236px,1866px-603px, 0px) rotateZ(-13deg);
-    transition: transform 5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
+    transform: translate3d(-7336px,1866px-603px, 0px) rotateZ(-13deg);
+    transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
-        transform: translate3d(7502px, 241px, 0) rotateZ(13deg);
+        transform: translate3d(7606px, 241px, 0) rotateZ(13deg);
         transform-origin:0 0;
     }
 }
@@ -528,7 +543,7 @@ $bstamp-width:700;
 /*向上左移*/
 .change-scene6 {
     transform: translate3d(-6492px,1866px-603px, 0px) rotateZ(-13deg);
-    transition: transform 5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
+    transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
         transform: translate3d(6776px, 75px, 0) rotateZ(13deg);
@@ -537,7 +552,7 @@ $bstamp-width:700;
 }
 .change-scene7 {
     transform: translate3d(-5066px-375px,1866px-603px, 0px) rotateZ(-13deg);
-    transition: transform 5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
+    transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
         transform: translate3d(5754px, -162px, 0) rotateZ(13deg);
@@ -548,13 +563,13 @@ $bstamp-width:700;
     transform: translate3d(-5768px, -1070px, 0px) rotateZ(-10deg);
     transition: transform 4.5s cubic-bezier(0.21, 0.03, 0.26, 0.98);
     .bstamp-list {
-        transform: translate3d(5600px, 1885px, 0) rotateZ(10deg);
+        transform: translate3d(5600px, 1884px, 0) rotateZ(10deg);
         transform-origin:0 0;
     }
 }
 .change-scene9 {
     transform: translate3d(-4608px,0, 0px);
-    transition: transform 5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
+    transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
         transform: translate3d(4608px, -101px, 0);
@@ -563,7 +578,7 @@ $bstamp-width:700;
 }
 .change-scene10 {
     transform: translate3d(-3906px-375px,1866px-603px, 0px) rotateZ(-13deg);
-    transition: transform 4s cubic-bezier(0.33, 0.00, 0.25, 1.00);
+    transition: transform 4.5s cubic-bezier(0.33, 0.00, 0.25, 1.00);
     transform-origin: 325px 603px;
     .bstamp-list {
         transform: translate3d(4626px, -446px, 0) rotateZ(13deg);
@@ -601,13 +616,27 @@ $bstamp-width:700;
         background-position: -608px 0;
     }
 }
-.arrow-right,.arrow-left{
+.arrow-right-wrapper,.arrow-left-wrapper{
     position: absolute;
     bottom: 80px;
-}
-.arrow-right {
-  @include sprite2($right-arrow)
+    font-size: 25px;
     
+    color: #e62f2e;
+    i{  
+        display: inline-block;
+        margin: 0 6px;
+    }
+    .tip-text{
+        position: relative;
+        top: -4px;
+        &.fade{
+            display: none;
+        }
+    }
+}
+.arrow-right-wrapper {
+  .arrow-right{
+    @include sprite2($right-arrow);  }
   right: 100px;
   opacity: 0;
     
@@ -617,14 +646,17 @@ $bstamp-width:700;
   }
   transition:opacity .5s;
 }
+.arrow-left-wrapper{
 
-.arrow-left {
-  @include sprite2($left-arrow)
 
-  left: 100px;
+    .arrow-left{
+      @include sprite2($left-arrow);
+      margin-top: 0;
+    }
+    left: 100px;
   /*animation:left-arrow 2.5s cubic-bezier(0.29, 0.03, 0.18, 1.02) infinite;*/
 
-  opacity: 0;
+    opacity: 0;
 }
 
 .gentie {
@@ -637,7 +669,7 @@ $bstamp-width:700;
 .about-icon{
     @include sprite2($about-net);
     position: absolute;
-    top: 56px;
+    top: 33px;
     left: 53px;
     z-index: 21;
     opacity: 0;
@@ -653,7 +685,7 @@ $bstamp-width:700;
         display: block;
     }
     
-    @include position(absolute, $top: 24px, $right: 31px);
+    @include position(absolute, $top: 2px, $right: 2px);
     opacity: 0;
     z-index: 21;
     .loaded &{
@@ -669,7 +701,9 @@ $bstamp-width:700;
     }
 }
 
-
+#tip{
+    transition:.4s;
+}
 .click-wrapper{
     color: #e62f2e;
     font-size: 28px;
@@ -679,15 +713,21 @@ $bstamp-width:700;
     z-index: 20;
     opacity: 0;
     pointer-events:none;
+
     .click-tip {
         @include sprite2($click);
         animation: click-tip .8s infinite;
+        
     }
     span{
         line-height: 50px;
     }
     .loaded &{
         opacity: .8;
+    }
+    &.fade{
+        opacity: 0;
+
     }
     transition:opacity .5s .33s;
 }

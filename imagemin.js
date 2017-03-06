@@ -1,11 +1,13 @@
 const imagemin = require('imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPngquant = require('imagemin-pngquant');
+const imageminGifsicle = require('imagemin-gifsicle');
 
-imagemin(['images/*.{jpg,png}'], 'build/images', {
+imagemin(['dist/distImg/*.{jpg,png,gif}'], 'dist/compressed-images', {
     plugins: [
         imageminMozjpeg(),
-        imageminPngquant({quality: '65-80'})
+        imageminPngquant({quality: '65-80'}),
+        imageminGifsicle({optimizationLevel:3})
     ]
 }).then(files => {
     console.log(files);

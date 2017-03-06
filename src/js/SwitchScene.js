@@ -19,12 +19,12 @@ function whichTransitionEvent(){
         }
     }
 }
-function getTranslateX(obj)
+function getTransitionTime(obj)
 {
-    let style = getStyle(obj,'transform')|| getStyle(obj,'webkitTransform'),
-        t = style.split(',')[0];
+    let style = getStyle(obj,'transition')|| getStyle(obj,'webkitTransition'),
+        t = style.split(' ')[1];
 
-    return t.substr(12)
+    return parseInt(t)
     //Return the value AS STRING (with the unit)
 }
 
@@ -38,6 +38,7 @@ class SwitchScene{
 		this._back = document.querySelector('.bstamp-back');
 		this._bgs = document.getElementsByClassName('transfomr-bg');
 		this._tip = document.getElementById('tip');
+		this._imgGoback = this._imgGoback.bind(this);
 
 		this._isTransform = false;
 		this._transParams = [{bgIndx:0,transIndex:0},{bgIndx:1,transIndex:1},{bgIndx:2,transIndex:2},{bgIndx:3,transIndex:3},
@@ -46,6 +47,7 @@ class SwitchScene{
 		]
 
 		this._stampList.addEventListener('click',(e) => this._goBStamp(e))
+
 		this._back.addEventListener('click',(e) => this._goStampList(e))
 		this._container.addEventListener(whichTransitionEvent(),(e)=> this._transitionEnd(e))
 	}
@@ -53,8 +55,9 @@ class SwitchScene{
 	_transitionEnd(e){
 		if(!(e.target==this._container)) return;
 		if(this._container.className.match(/change-scene/)){
-			
 			this._back.classList.remove('hide')
+			this._bstampList.addEventListener('click',this._imgGoback);
+
 		} else if(this._container.classList.contains('back-scene')){
 			this._handleScroll.start()
 			this._container.classList.remove('back-scene');	
@@ -72,7 +75,7 @@ class SwitchScene{
 			t = findAncestor(e.target,'s-stamp')
 		}
 		if(!(t.classList.contains('in-mask'))||this._isTransform||this._container.classList.contains('back-scene')) return;
-		document.querySelector('.click-wrapper')&&this._tip.removeChild(document.querySelector('.click-wrapper'))
+		
 
 		this._tip.style.opacity = 0;
 
@@ -92,16 +95,24 @@ class SwitchScene{
 
 		this._container.classList.add('change-scene'+(this._transParams[index].transIndex+1));
 		this._hideElement(this._bgs)
-		this._showElement(this._bgs[this._transParams[index].bgIndx])
+		this._showElement(this._bgs[this._transParams[index].bgIndx]);
+
+		// setTimeout(()=>this._bstamp[this._handleScroll.curIndex].classList.add('fade-in'),getTransitionTime(this._container)*1000-800)
 		
+	}
+	
+	_imgGoback(e){
+		if(e.target.nodeName.toLowerCase()=='img')
+			this._goStampList(e)
 	}
 
 	_goStampList(){
-		
+		this._bstampList.removeEventListener('click',this._imgGoback)
+
 		this._hideElement(this._bstampList);
 		this._hideElement(this._back);
 		this._container.className='container back-scene';	
-		
+		this._bstamp[this._handleScroll.curIndex].classList.remove('fade-in');
 	}
 
 	_hideElement(elem){

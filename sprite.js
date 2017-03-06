@@ -7,10 +7,10 @@ var converter = require('sass-convert');
 //icon-img
 nsg({
     src: [
-        'dist/icon-img/*.png'
+        'dist/stamp-text-img1/*.png'
     ],
-    spritePath: 'dist/img/icon-img.png',
-    stylesheetPath: 'src/scss/icon-img.scss',
+    spritePath: 'dist/img/stamp-text-img1.png',
+    stylesheetPath: 'src/scss/stamp-text-img1.scss',
     stylesheet:'scss',
     stylesheetOptions:{
 
