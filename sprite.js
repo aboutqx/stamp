@@ -5,12 +5,14 @@ var converter = require('sass-convert');
 //stamp-text-img
 //stamp-text-img1
 //icon-img
+let imageName = "stamp-text-img1";
+
 nsg({
     src: [
-        'dist/stamp-text-img1/*.png'
+        'dist/'+imageName+'/*.png'
     ],
-    spritePath: 'dist/img/stamp-text-img1.png',
-    stylesheetPath: 'src/scss/stamp-text-img1.scss',
+    spritePath: 'dist/img/'+imageName+'.png',
+    stylesheetPath: 'src/scss/'+imageName+'.scss',
     stylesheet:'scss',
     stylesheetOptions:{
 
