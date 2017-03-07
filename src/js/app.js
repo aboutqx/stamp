@@ -14,24 +14,19 @@ const detectBrowser = {
 	},
 	isNeteaseNes:function(){
 		return (/newsapp/i).test(ua)
+	},
+	isMobile:function() {
+		return /iphone|android|nokia|sony|ericsson|mot|samsung|sgh|lg|philips|panasonic|alcatel|lenovo|cldc|midp|wap|mobile/i.test(ua)&&!/pc=1/.test(location.search)
 	}
 };
 
-(function(){
-    if (!(ua.indexOf('newsapp') > -1)) {//是
-        $(".main_share_btn").show();
-        $('.gentie').addClass('newsapp');
 
-    }else{
-        $(".main_share_btn").hide();
-        $('.gentie').removeClass('newsapp');
-    }
-})()
 const assets = [
 	{ id:'moveBg', url:'http://img1.cache.netease.com/f2e/news/dada_stamp/dist/distImg/bs12-move.png' },
 ];
 	
 window.getAsset = function(id) {	return window.assets.find( (a) => a.id === id).file;	}
+
 
 if(document.body) {
 	_loadAnimation();
@@ -40,6 +35,10 @@ if(document.body) {
 }
 
 function _loadAnimation () {
+	if(!detectBrowser.isMobile()){
+		document.body.innerHTML = "<img style='width:960px;display:block;margin:100px auto;' src='http://img1.cache.netease.com/f2e/news/dada_stamp/dist/distImg/pc-02.jpg'>";
+		return;
+	} 
 	let loader = document.querySelector('.Loading-Bar');
 	let loaderText = document.querySelector('.loader-text');
 	let loaderWrapper = document.querySelector('.loader-wrapper');
