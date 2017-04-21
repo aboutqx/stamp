@@ -17,7 +17,7 @@ flexbox比其它布局更快
 	3.css中的背景图
    因此，重要图片直接放在页面html中，次重要放在js的assets-loader中，待assets-loader完成加载再显示页面
 
-js执行完-》domcententloaded触发-》加载图片等外部资源
+js执行完-》domcententloaded触发-》加载css和xhr等外部资源-》finished
 
 
 png有损压缩能减小很多size,css sprtie优于base64，base64体积会大1/3，会阻塞css的解析
