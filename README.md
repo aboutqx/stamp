@@ -11,11 +11,11 @@ flexbox比其它布局更快
 观察timeline面板中的requestAnimationFrame触发过程之间的时间和执行事件所需的时间，来分析fps低的原因
 在animationFrame的16ms里进行任务，能保证60fps，使用scheduler.js
 
-浏览器图片请求优先级：(资源请求和解析都是异步，除了js)
+浏览器图片请求顺序：(资源请求和解析都是异步，除了js)
 	1.页面中img标签
-	2.js执行的xhr，或者新建标签
-	3.css中的背景图
-   因此，重要图片直接放在页面html中，次重要放在js的assets-loader中，待assets-loader完成加载再显示页面
+	2.css中的背景图
+	3.js执行的xhr，或者新建标签中的图片 
+	因此，一般图片直接放在页面html中，需要完全加载完的放在js的assets-loader中，待assets-loader完成加载再显示页面
 
 js执行完-》domcententloaded触发-》加载css和xhr等外部资源-》finished
 
