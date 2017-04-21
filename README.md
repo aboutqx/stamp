@@ -6,6 +6,8 @@
 
 先进行其他操作，最后再进行classList的加减，防止强制重新布局
 
+尽量只使用transform和opacity进行属性更改，防止reflow
+
 flexbox比其它布局更快
 
 观察timeline面板中的requestAnimationFrame触发过程之间的时间和执行事件所需的时间，来分析fps低的原因
